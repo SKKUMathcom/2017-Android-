@@ -4,27 +4,27 @@
 
 안드로이드 스튜디오도 설치했으니 앱을 위한 프로젝트를 만들어봅시다.안드로이드 스튜디오를 실행 시키고 제일 첫번째 메뉴인 "Start a new Android Studio project"를 눌러줍시다
 
-![newproject](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-1.PNG)
+![newproject](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-1.PNG)
 
 Application name은 저희가 만들 어플리케이션의 이름이 되니 신중히 만들어 주시구요
 Company domain은 이 어플을 만든 단체의 이름입니다. 이 두개를 조합해서 package name을 만드는데
 이 package name이 단말기에서 어플을 구분해주는 역할을 합니다. package name은 자동으로 설정되며 edit을 눌러 수동으로 수정할 수 있습니다.
 
 Next를 누르면 어플리케이션이 사용될 단말기의 종류를 고르는 화면이 나옵니다.
-![FormFactors](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-2%20HW.PNG)
+![FormFactors](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-2%20HW.PNG)
 
 저희가 만들려고 하는건 phone의 application이니 "phone and tablet"을 선택합시다.
 
 다음화면에서는 앱을 처음 실행했을 떄의 화면의 모양을 선택합니다. 각 화면은 Android Studio에서 제공하는 xml 양식이며 xml 코딩능력이 뛰어나다면 직접 customizing해도 됩니다.
 저희는 기본적인 어플을 실행할 것이니 "Empty Activity"를 선택해 줍니다. 
 
-![xmlact](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-3.PNG)
+![xmlact](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-3.PNG)
 
 그럼 Activity Name과 Layout Name을 지정해줘야 하는데 Activity name은 저희가 App을 실행할 main JAVA class를 의미하고 Layout Name은 전 페이지에서 설정해준 layout의 이름을 의미하는데 별 큰 지장없으니 원하는 이름으로 수정하고 finish를 눌러줍니다.
 
 그럼 project생성이 완료되엇습니다. Android Studio에서는 처음 프로젝트를 생성할 때 default로 Hello World라는 text가 있는 app으로 생성하므로 hello world를 치는건 생략합니다.
 
-![2-4](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-4.PNG)
+![2-4](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-4.PNG)
 
 화면이 아무것도 안뜬다면 그림에서 보이는것 처럼 (1)project를 누르고 (2)app을 누르면 java아래 저희가 생성한 파일들이 있는걸 확인 할 수 있습니다.
 
@@ -35,20 +35,20 @@ Next를 누르면 어플리케이션이 사용될 단말기의 종류를 고르�
  가상머신으로 쓸 단말기를 설정하는 과정이므로 create virtual device 후 next next해서 default값으로 처리해줍니다.
 
 그럼 이제 가상 메모리를 설정해주는 단계에 오는데 이건 많이 하면 어플을 실행하는 동안 PC가 느려지고 적게하면 가상머신에서 어플실행이 안될수 있으니 적절히 설정해줍니다.
-![virtualmemory](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-5%20%EA%B0%80%EC%83%81%20%EB%A9%94%EB%AA%A8%EB%A6%AC.PNG)
+![virtualmemory](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-5%20%EA%B0%80%EC%83%81%20%EB%A9%94%EB%AA%A8%EB%A6%AC.PNG)
 
 메모리가 너무 과하다 혹은 모자라다 싶으면 안드로이드가 설치된 폴더 (default: C:/Program Files/Android/Android Studio)에서 bin폴더로 들어가 studio64.exe.vmoptions파일을 관리자권한으로 메모장을이용해 실행해줍니다.
 여기서 -Xmx 이후의 값을 증가시키면 됩니다. 
 
 이 과정을 다 마치면 AMD Manager에 device가 하나 추가된걸 확인할 수 있는데, 우측 재생모양의 아이콘을 눌러주면 가상 머신이 실행되는걸 확인할 수 있습니다.
-![2-6](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-6.PNG)
+![2-6](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-6.PNG)
 
 ## 실행
 
 어플리케이션 실행은 간단합니다. 실행환경을 모두 구축하였으면 아래 사진에서 보이는 재생모양 아이콘(run)을 클릭하거나 혹은 shift+F10을 눌러줍니다.
 실행할 에뮬레이터를 클릭하면 에뮬레이터로 어플리케이션이 실행되는걸 확인할 수 있습니다.
 
-![2-7](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-7.PNG)
+![2-7](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-7.PNG)
 
 ## 뭐라도 해보자
 
@@ -57,11 +57,11 @@ Next를 누르면 어플리케이션이 사용될 단말기의 종류를 고르�
 
 먼저 새로운 페이지를 생성합니다. Android app에서는 activity하나가 하나의 페이지가 됩니다.
 새로운 activity를 만드는건 어려우니 기존에 있던 activity를 복사합시다.
-![activitycopy](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-8.PNG)
+![activitycopy](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-8.PNG)
 그림과 같이 프로젝트 솔루션에서 MainActivity를 복사해 SecondActivity를 만들고 activity_main.xml을 복사해 activity_second.xml을 만들어줍니다.
 
 그럼 이제 main activity에서 다음 화면으로 넘어갈 버튼을 만들어줍시다. acitivity_main.xml의 design에서 "hello world"를 지우고 버튼을 드래그해 만들어줍니다.
-![makebutton](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/firstpage.PNG)
+![makebutton](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/firstpage.PNG)
 
 버튼이 좀 너무 기본값으로 되있으니 바꿔봅시다.
 xml우측창은 각 component의 properties를 나타냅니다. 하단의 view all properties를 눌러 여러 사항들을 바꿔주죠.
@@ -70,7 +70,7 @@ xml우측창은 각 component의 properties를 나타냅니다. 하단의 view a
 
 그리구 가장 중요한건 onClick에 버튼을 클릭할 때의 event 이름을 정해줘야합니다. 전 onClick을 onButtonClicked로 바꿨습니다.
 
-![property](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-10.PNG)
+![property](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-10.PNG)
 
 이 xml파일의 코드를 보면 중간에 
 ```shell
@@ -199,7 +199,7 @@ public class SecondActivity extends AppCompatActivity {
 
 이는 프로젝트 솔루션에서 manifest에서 설정할 수 있습니다.
 
-![manifest](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-12.PNG)
+![manifest](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-12.PNG)
 
 
 
@@ -207,7 +207,7 @@ public class SecondActivity extends AppCompatActivity {
 
 하던데로 xml에 버튼을 추가하고 속성을 끄적끄적합니다.
 
-![page](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-11.PNG)
+![page](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-11.PNG)
 
 제 경우의 xml의 버튼값은 다음과 같습니다.
 
@@ -240,9 +240,9 @@ button의 onClick에 맞춰 NetButtonClicked class를 추가해주고 Intent를 
 
 이제 앱을 실행해 봅시다
 
-![test1](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-13(1).PNG)
+![test1](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-13(1).PNG)
 
-![test2](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/2-13(2).PNG)
+![test2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/2-13(2).PNG)
 
 와우... 첫날만에 기본 어플을 만들수 있게 되었네요
 
