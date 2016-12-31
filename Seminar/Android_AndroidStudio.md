@@ -21,7 +21,7 @@ Language: JAVA (OS와의 호환을 위해 약간의 C를 사용하기도 함)
 
 IDE: Android Studio
 
-![Android](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/android_icon.png)
+![Android](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/android_icon.png)
 
 # Android Studio
 
@@ -32,7 +32,7 @@ Android Studio는 개발환경툴(IDE)로 언어를 제공하지는 않는다.
 
 ## JDK(Java Development Kit)
 
-![javalogo](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/java-logo-vector.png)
+![javalogo](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/java-logo-vector.png)
 
 Java는 객체지향 언어로 Java Virtual Machine에 의해 OS에 따로 제한을 받지 않기 때문에 여러 환경에서 개발할 수 있다는 특징이 있다.
 
@@ -40,7 +40,7 @@ Java는 객체지향 언어로 Java Virtual Machine에 의해 OS에 따로 제�
 
 먼저 Java 설치하는 사이트로 갑시다. [Click here!!](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-![JDK 설치](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/java%20%EC%84%A4%EC%B9%98%202.PNG)
+![JDK 설치](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/java%20%EC%84%A4%EC%B9%98%202.PNG)
 
 빨간색으로 동그라미 칠해진 Accept license Agreement를 클릭하고
 
@@ -52,18 +52,18 @@ Java는 객체지향 언어로 Java Virtual Machine에 의해 OS에 따로 제�
 
 이제 경로설정을 해줍시다. 
 
-![시스템속성](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%86%8D%EC%84%B1.PNG)
+![시스템속성](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%86%8D%EC%84%B1.PNG)
 
 시스템속성 -> 고급 시스템 설정
 
-![환경변수](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95.PNG)
+![환경변수](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98%EC%84%A4%EC%A0%95.PNG)
 
 사진대로 환경변수-> 시스템변수 중에 새로만들기 클릭하고
 변수이름: JAVA_HOME (크게 상관은 없지만 걍 하세요)
 변수값 : 자바 설치한 경로
 
 로 해줍시다. 
-![환경변수2](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/java%20%EC%84%A4%EC%B9%98%203.PNG)
+![환경변수2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/java%20%EC%84%A4%EC%B9%98%203.PNG)
 그 후 시스템변수의 Path에 설치한 JAVA폴더의 bin폴더를 추가해줍니다.
 
 ## Android Studio
@@ -88,11 +88,11 @@ Android Studio 에서 설치하는건 크게 2가지 입니다.
 
 
 설치가 완료되면 Android Studio를 실행해줍니다. 실행후 첫 화면에 보면 configure가 있는데 여기서 제일 먼저 나오는 SDK manager를 클릭합니다.
-![configure](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/sdk.png)
+![configure](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/sdk.png)
 
 거기서 launch standalone SDK를 누르면 Android SDK Manager가 팝업됩니다. 여기서는 현재 설치된 플랫폼, 설치가 되지 않은 플랫폼에서 사용되는 tool을 확인, 수정할 수 있습니다.
 Packages 목록중에 최신 안드로이드 API와 맨 아래 있는 Extras를 체크한 후 install 해줍시다.
-![SDKManager](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/launch%20standalone.PNG)
+![SDKManager](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/launch%20standalone.PNG)
 
 install시 라이센스가 다 accept 되도록 설치해주는것에 주의!!
-![install](https://github.com/lkiung/SKKUMathcom-AndroidApp/blob/master/Seminar/Figure/sdk2.PNG)
+![install](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/sdk2.PNG)
