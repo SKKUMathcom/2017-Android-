@@ -22,7 +22,7 @@
 
 그럼 뷰에서 가장 많이 쓰이는 속성인 layout_width, layout_height, id, background에 대해 알아봅시다.
 
-1. layout_width, layout_height
+### layout_width, layout_height
 
 뷰는 뷰그룹이 가지는 공간중 일부 혹은 전체에 위치하는데 이 뷰의 크기를 결정하는 속성이 layout_width(넓이), layout_height(높이)입니다.
 
@@ -51,7 +51,7 @@ wrap_content: 	뷰의 contents 길이 만큼의 공간 차지
 실제 앱에는 어떤 화면이든 같은 비율로 보이는 dp가 당연히 가장 많이 사용됩니다.
 
  
-2. ID
+### ID
 
 안드로이드에 메인으로 쓰이는 언어는 자바인데 xml로 생성된 레이아웃과 뷰를 어떻게 참조할까 생각해본적 있나요?
 
@@ -144,3 +144,21 @@ click된지 확인하기 위해 Toast를 위해 간단한 메세지를 넣어줍
 button을 클릭하면 아래 그림처럼 메세지가 뜨는걸 확인할 수 있습니다.
 
 ![result](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/Button_1.png)
+
+
+
+### Background
+
+뷰는 기본적으로 배경이 그려지고 그 위에 필요한 정보가 그려집니다. 따라서 대부분의 뷰는 background 속성이 있습니다. background의 default 는 @drawable/btn_default_material로 약간 회색 계통의 색이 됩니다.
+
+xml에서 색상을 지정할 때에는 #(+Alpha) + RGB 순서로 값을 기록합니다. 각 값은 16진법 두자리로 0부터 255까지로 지정됩니다. 
+즉 #ff0000은 빨강, #00ff00은 초록 #0000ff는 파랑이고 alpha 값은 투명한 정도를 0~255로 나타낸것입니다.
+
+예를들어 #ff0000ff 는 완전 불투명한 파란색이고 ##8800ff00은 반투명한 초록색, #00ffffff는 투명한 배경이 됩니다.
+
+
+
+배경을 이미지로 지정하기 위해서는 drawable에 이미지파일을 넣은 뒤에 @drawable/imagename 과 같이 지정해줍니다. 
+
+background의 defualt값은 drawable의 기본속성중 btn_default_material을 가져온다고 할 수 있죠( 실제로 btn_default_material.png 파일은 존재하지 않고 xml에서 기본제공하는것인듯 합니다.)
+
