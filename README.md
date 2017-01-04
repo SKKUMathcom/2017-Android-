@@ -6,6 +6,7 @@
 
 [2.생성부터 실행까지](https://github.com/SKKUMathcom/2017Seminar/blob/master/Seminar/FromCreatet_ToRun.md)
 
+[3.View](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View.md)
 
 ## project
 
