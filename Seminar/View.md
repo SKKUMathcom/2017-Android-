@@ -162,3 +162,169 @@ xml에서 색상을 지정할 때에는 #(+Alpha) + RGB 순서로 값을 기록�
 
 background의 defualt값은 drawable의 기본속성중 btn_default_material을 가져온다고 할 수 있죠( 실제로 btn_default_material.png 파일은 존재하지 않고 xml에서 기본제공하는것인듯 합니다.)
 
+## layout
+
+layout은 뷰의 배치방식을 정의한 뷰그룹으로 대표적인 layout은 linear-layout, relative-layout, absolute-layout, table-layout,frame-layout, scroll view, grid-view, list-view 등이 있습니다.
+
+absolute는 현재 안쓰이고, grid-view는 table과 유사하고, list는 scroll과 유사하므로 
+ 저흰 이 중에서 linear-layout, relative-layout, table-layout,scroll view, frame-layout 이 5가지를 살펴보도록 합시다.
+
+기본적으로 사용되는 layout은 relativ-layout이며 다른 layout은 linear layout을 상속받습니다. 
+
+모든 layout은 android:layout_width와 layout_height를 필수적으로 요구하며,
+
+일반적으로 layout은 다음과 같은 대표적인 속성을 갖습니다.(모든 레이아웃이 이런 속성을 다 갖지는 않음)
+
+		file model: 뷰를 부모뷰(이 뷰를 포함하는 뷰)의 여유공간에 어떻게 채울것인지를 설정
+		
+		orientation: 뷰를 추가하는 방향 설정
+		
+		gravity: 뷰의 정렬방향 설정
+
+		padding: 뷰의 여유공간 설정
+
+		weight: 뷰의 공간의 가중치 설정
+
+
+### linear layout
+
+layout 중 가장 많이 사용되는 기본 레이아웃으로 각 뷰마다 영역을 지정하고, 제시된 방향에 따라 정렬하는 방식입니다.
+
+당연히 여기서는 android:orientation이 필수적으로 들어가야겠죠.
+
+먼저 아까 사용했던 activity_main.xml의 레이아웃을 linear-layout으로 바꿔줍니다.
+
+xml코드의 맨 바깥쪽 태그를 RelativeLayout에서 LinearLayout으로 바꿔주세요
+
+
+그리고 방향을 vertical 로 설정한 뒤, 기존버튼을 지우고, Button1, Button2, Button3 세개의 버튼을 만들어 줍시다.
+
+``` shell
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  <---(RelativeLaout->LinearLayout)
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:orientation="vertical"                        <------ 여기 필수로 추가!!
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="kiwoong_ex.test.MainActivity">
+
+    <Button
+        android:text="Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="23dp"
+        android:id="@+id/button1"
+        />
+    <Button
+        android:text="Button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="23dp"
+        android:id="@+id/button2"
+        />
+    <Button
+        android:text="Button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="23dp"
+        android:id="@+id/button3"
+        />
+</LinearLayout>              <---(RelativeLaout->LinearLayout)
+
+```
+
+![run1](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/linear-layout.PNG)
+
+가로방향은 android:orientation을 horizontal로 해주면 되겟죠?
+
+다음으로는 xml이 아닌 자바에서 linearlayout을 설정해줍시다. 아까 뷰에서도 그렇고 xml로 만들수 있는걸 왜 자바코드로 하냐면
+
+xml은 특정 조건에서 뷰를 변경하는걸 만들기가 힘들어요. 그니까 자바에서 하는것도 익혀둘 필요가 있는거죠. 
+
+저번 세미나에서 한것처럼 MainActivity를 복사해서 LinearLayout2라는 이름으로 만들어줍시다. 
+
+시작점을 MainActivity가 아닌 LinearLayout2로 해야 하니까 manifests에서도 변경작업이 필요하겠죠?
+
+Manifests를 열어 
+
+``` shall
+
+        <activity android:name=".MainActivity">  ---> 얘를 <activity android:name=".LinearLayout2">로 고쳐줍시다.
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />     ---> 이게 있는 화면이 이 앱의 메인화면이 됩니다.
+
+                <category android:name="android.intent.category.LAUNCHER" />   ----> 이게 있는 화면이 시작화면이 되고요
+            </intent-filter>
+        </activity>
+
+```
+
+이제 LinearLayout2.java를 수정해줍시다.
+
+```shall
+
+public class LinearLayout2 extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // setContentView(R.layout.activity_main); activity_main 없이 하기 위해 하는것이므로 이건 지워주자.
+
+        LinearLayout newLayout = new LinearLayout(this); //새로운 Layout을 만들기 위해 LinearLayout으로 newLayout 객채를 만듦
+        newLayout.setOrientation(LinearLayout.VERTICAL); //newLayout의 Orientationd을 vertical로 설정
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        //view를 앞으로 만들껀데 이것들의 parameter로는 width랑 height가 필요함. 일일이 정의하기 귀찮으니 params라는 객체를 만들어 각각을 이와같이 해두자(input에 들어가는건 순서대로 width, heigth이다)
+
+        Button button1 = new Button(this); //button1을 만들고
+        button1.setText("Button 1"); //그것의 Text를 설정하고
+        button1.setLayoutParams(params);  //그것의 parameter (width, height 등을 설정.
+
+        Button button2 = new Button(this); //위와 같다
+        button2.setText("Button 2");
+        button2.setLayoutParams(params);
+
+        Button button3 = new Button(this);
+        button3.setText("Button 3");
+        button3.setLayoutParams(params);
+
+        newLayout.addView(button1); //button1을 만들었으니 newLayout에 이 view를 추가
+        newLayout.addView(button2);
+        newLayout.addView(button3);
+
+        setContentView(newLayout); //newLayout을 onCreate 시 ContentView로 설정.
+    }
+
+
+
+
+}
+```
+
+타이핑 두번하기힘들어서 주석으로 달아놨으니 주석 참고해주세요 ㅠㅠ 
+
+
+결과는 아래와 같이 나옵니다.
+
+![run2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/linear-layout2.PNG)
