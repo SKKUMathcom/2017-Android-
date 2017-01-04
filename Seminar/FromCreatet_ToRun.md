@@ -229,7 +229,7 @@ public class SecondActivity extends AppCompatActivity {
     public void NetButtonClicked(View v)
     {
         Toast.makeText(this,"홈페이지로 접속합니다.",Toast.LENGTH_LONG).show();
-        Intent netintent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/lkiung/SKKUMathcom-AndroidApp"));
+        Intent netintent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SKKUMathcom/2017-Android"));
         startActivity(netintent);
     }
 ```
