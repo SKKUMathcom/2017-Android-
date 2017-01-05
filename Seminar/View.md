@@ -632,7 +632,7 @@ weight는 가중치에 따라 크기를 결정하는 속성인데요, 레이아�
 </LinearLayout>
 ```
 
-![weight](https://github.com/SKKUMathcom/2017-Android-/upload/master/Seminar/Figure/weight.PNG)
+![weight](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/weight.PNG)
 
 
 weightsum은 해당 layout의 총합을 지정하고 나머지부분은 공백으로 채우는걸 의미합니다.
