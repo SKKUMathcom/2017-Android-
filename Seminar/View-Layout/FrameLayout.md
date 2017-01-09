@@ -273,4 +273,5 @@ Invisible하게 바꿔줍니다.
 ```
 
 ![FrameLayout2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/Framelayout2.PNG)
+
 어플을 실행하면 잘생긴 박보검형님이 매달 옷을 바꿔입으면서 날짜를 보여주네요 캬... 존잘...
