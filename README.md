@@ -7,9 +7,13 @@
 
   * [생성부터 실행까지](https://github.com/SKKUMathcom/2017Seminar/blob/master/Seminar/Introduce/FromCreatet_ToRun.md)
 
-### (2) View / layout
+### (2) View
 
   * [View](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/View.md) 
+
+  * [Widget]()
+  
+### (3) Layout 
 
   * [LinearLayout](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/LinearLayout.md)
 
@@ -18,6 +22,8 @@
   * [TableLayout](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/TableLayout.md)
 
   * [ScrollView](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/ScrollView.md)
+  
+  * [FrameLayout](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/FrameLayout.md)
 
 ## project
 
