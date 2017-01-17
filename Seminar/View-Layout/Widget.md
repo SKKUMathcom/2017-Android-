@@ -18,7 +18,7 @@ TextView는 화면구성의 가장 기본적인 위젯이라 할 수 있습니�
 
 ***
 
-1. text
+1.text
 
 레이블에 표시할 텍스트를 지정합니다. textview는 문자열이 없으면 뷰가 차지하는 영역을 계산할 수 없으므로 반드시 지정해야하는 속성입니다.
 
@@ -73,15 +73,15 @@ A는 투명도, R은 빨간정도 G는 초록색의 세기, B는 파란색의 �
 안드로이드에서 color는 대부분 이런 식으로 표현하니 알아두세요!!
 
 ***
-3. textSize
+3.textSize
 
 텍스트의 크기입니다. 단위는 sp(폰트사이즈) dp(자세한내용은 [이곳의 단위](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/View.md#layout_width-layout_height)를 확인하시오
-
-4. textStyle
+***
+4.textStyle
 
 문자의 속성(기울게(italic)나 굵게(bold))을 나타냅니다. '|'로 여러개를 나타낼 수 있으며 '|'앞뒤로는 공백이 있으면 안되요.
-
-5. typeFace
+***
+5.typeFace
 
 폰트를 나타냅니다. 안드로이드에서 제공되는 폰트는 몇개 없어요.... normal, sans, serif, monospace정도인데 다 별로입니다.
 
@@ -134,7 +134,7 @@ Typeface를 객체로 만들어서 Asset으로부터 NanumPen.tff를 넣고 text
 
 ![결과물](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/Font2.PNG)
 
-
+***
 6.singleLine
 
 TextView의 text를 한줄에 씁니다. 한줄의 영역을 넘어가면 '...'으로 표시됩니다.
@@ -157,15 +157,15 @@ onClick 속성을 부여하지 않고 java에서 button의 객체에 OnClickList
 
 
 다른건 거의 button하고 같으니 on일때랑 off 일 때의 특성들을 살펴보죠
-
+***
 1. textOn
 
 ToggleButton이 클릭되었을 때에 띄우는 Text입니다. 
-
+***
 2. textOff
 
 당연히 ToggleButton이 클릭 안됬을 떄 띄우는 Text겠죠?? 
-
+***
 ToggleButton은 클릭 되고 안되고 두가지 경우밖에 없기 때문에 text는 크게 의미가 없습니다. 
 
 ToggleButton을 클릭했을 때의 배경도 조금 복잡하지만 설정이 가능합니다. 
@@ -247,3 +247,4 @@ onClick에서 toggleButton을 수정해주기 때문에 처음에 toggleButton�
 
 toggleButton.isChecked()로 if문을 확인하는데요, ToggleButton은 버튼이 클릭되면 isChecked가 true로, 해제되면 false로 바뀝니다. 이를 이용해 Drawable에서 사진을 가져온 다음 그걸 배경으로 설정하는거죠.
 
+정리하자면 ToggleButton의 개념은 클릭했을 때랑 해제했을 때랑 나뉘는 버튼이며 핵심은 isChecked로 확인한 뒤 if문을 이용해서 이에 따른 동작을 넣어줄 수 있다는겁니다!!
