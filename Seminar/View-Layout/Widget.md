@@ -133,3 +133,117 @@ public class MainActivity extends AppCompatActivity {
 Typeface를 객체로 만들어서 Asset으로부터 NanumPen.tff를 넣고 text라는 id를 가진 TextView를 textview로 만들어주고 setTypeface를 이용해 나눔펜체로 설정했습니다.
 
 ![결과물](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/Font2.PNG)
+
+
+6.singleLine
+
+TextView의 text를 한줄에 씁니다. 한줄의 영역을 넘어가면 '...'으로 표시됩니다.
+
+후... 길었다..... 근데 나머지는 짧을꺼에요 하핳.. TextView는 글자가 들어간 위젯의 부모라서 글자가 들어간 위젯은 다 이 기능들을 가져서 자세히 한겁니다 하핳
+
+## Button
+
+button은 TextView에서 클릭했을 때의 기능이 추가된 걸 말합니다. onClick이라는 속성을 부여하여 click했을 떄의 기능을 정의할 수 있습니다.
+
+onClick 속성을 부여하지 않고 java에서 button의 객체에 OnClickListener를 오버라이딩해서 클릭했을 때의 기능을 만들 수도 있습니다.
+
+자세한건 [View에서 ID중에](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/View.md#id)에서 좀 내려가면 있어요.
+
+## ToggleButton
+
+컴퓨터를 사용하다보면 on/off 스위치처럼 버튼이 눌린 상태로 유지되는 버튼을 본적있을 겁니다. 그런 기능을 하는게 바로 ToggleButton입니다. 
+
+안드로이드는 ToggleButton을 기본적으로 가운데 불빛이 들어오는 버튼으로 만드는데 버튼이 눌려있을 때에는 불빛이 들어오고 안눌려있을 때에는 불빛이 꺼집니다. 
+
+
+다른건 거의 button하고 같으니 on일때랑 off 일 때의 특성들을 살펴보죠
+
+1. textOn
+
+ToggleButton이 클릭되었을 때에 띄우는 Text입니다. 
+
+2. textOff
+
+당연히 ToggleButton이 클릭 안됬을 떄 띄우는 Text겠죠?? 
+
+ToggleButton은 클릭 되고 안되고 두가지 경우밖에 없기 때문에 text는 크게 의미가 없습니다. 
+
+ToggleButton을 클릭했을 때의 배경도 조금 복잡하지만 설정이 가능합니다. 
+
+(1) xml로 설정하는 방법
+
+먼저 drawable에 다음과 같이 두장의 사진과 새 xml파일 togglebutton_selected.xml을 만들어줍시다
+
+![toggle](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/toggle1.PNG)
+
+xml 파일에는 아래와 같이 작성합니다.
+
+```shell
+
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/pichu"/>
+    <item android:state_checked="false" android:drawable="@drawable/pickachu"/>
+</selector>
+
+```
+
+그리고 activity_main.xml로 가서 ToggleButton의 background를 아래와 같이 수정해줍시다.
+
+```
+ android:background="@drawable/togglebutton_selected"
+```
+
+그럼 아래와 같이 이미지가 바뀌게 됩니다.
+
+![toggle2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/toggle2.PNG)
+
+(2) java로 설정하는 방법
+
+자바로 할 때에는 toggle 이 클릭되기 전 시작사진, 클릭된 후 사진, 해제된 후 사진 이렇게 3개의 사진을 설정할 수 있습니다. ( 두개만 하고싶으면 초기사진을 해제된사진과 같게하세요)
+
+xml에 가서 클릭 되기전 초기사진을 배경으로 설정해줍시다. 
+
+ToggleButton의 background를 다음과 같이 수정해줍니다. java에서 사용할 꺼니 id도 설정해줍시다.
+
+```shell
+ android:background="#ff000000"
+ android:id="@+id/toggleButton"
+
+```
+
+이제 자바파일 가서 아래처럼 수정해줍시다.
+
+```shell
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final ToggleButton toggleButton = (ToggleButton)findViewById(R.id.toggleButton);
+        toggleButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(toggleButton.isChecked())
+                    toggleButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.pichu));
+                else
+                    toggleButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.pickachu));
+
+
+
+            }
+        });
+    }
+```
+
+먼저 ToggleButton으로 toggleButton이라는 객체를 생성해주고 findeViewById로 우리가 만든 toggleButton을 할당해줍니다.
+
+toggleButton에 onClicked 속성을 안만들어줬으니 만들어줘야겠죠. setOnClickListener로 onClick을 설정하게 한 뒤 Override를 시켜서 onClick 메소드를 수정해줍니다.
+
+onClick에서 toggleButton을 수정해주기 때문에 처음에 toggleButton을 선언할 때 final을 붙여줘요 (final 붙으면 수정이 불가능해져서 toggleButton의 onClick을 overriding 할 때 변수가 변환되는걸 방지)
+
+그리고 다음 문장이 중요합니다.
+
+toggleButton.isChecked()로 if문을 확인하는데요, ToggleButton은 버튼이 클릭되면 isChecked가 true로, 해제되면 false로 바뀝니다. 이를 이용해 Drawable에서 사진을 가져온 다음 그걸 배경으로 설정하는거죠.
+
