@@ -332,7 +332,7 @@ margin은 layout_gravity랑 비슷하다고 보시면 되요. 뷰를 포함하�
 ```
 결과값입니다.
 
-![padding](https://github.com/SKKUMathcom/2017-Android-/upload/master/Seminar/Figure/margin_padding.PNG)
+![padding](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/margin_padding.PNG)
 
 
 ### weight
