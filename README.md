@@ -11,7 +11,7 @@
 
   * [View](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/View.md) 
 
-  * [Widget]()
+  * [Widget](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/Widget.md)
   
 ### (3) Layout 
 
