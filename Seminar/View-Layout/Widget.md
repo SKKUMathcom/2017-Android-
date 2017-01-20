@@ -248,3 +248,91 @@ onClick에서 toggleButton을 수정해주기 때문에 처음에 toggleButton�
 toggleButton.isChecked()로 if문을 확인하는데요, ToggleButton은 버튼이 클릭되면 isChecked가 true로, 해제되면 false로 바뀝니다. 이를 이용해 Drawable에서 사진을 가져온 다음 그걸 배경으로 설정하는거죠.
 
 정리하자면 ToggleButton의 개념은 클릭했을 때랑 해제했을 때랑 나뉘는 버튼이며 핵심은 isChecked로 확인한 뒤 if문을 이용해서 이에 따른 동작을 넣어줄 수 있다는겁니다!!
+
+## CheckBox&RadioButton
+
+CheckBox와 RadioButton 또한 Button을 상속합니다. 또한 ToggleButton과 마찬가지로 버튼의 상태를 확인할 수있습니다.
+
+흔히 설문조사에서 자주 쓰이며 ToggleButton처럼 isChecked() 와 setChecked(boolean) 두가지 메소드가 존재합니다.
+
+하지만 ToggleButton처럼 android:textOn, android:textOff의 특성은 제공되지 않는다는 차이가 있습니다.(그래서 android:text가 여기선 중요합니다.)
+
+RadioButton은 CheckBox와는 다르게 RadioGroup으로 묶어 여러개중에 복수선택을 허용하지 않을 수 있습니다. 
+
+아래는 RadioButton의 예시입니다.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="kiwoong_ex.widget_test.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별"
+        android:textSize="20dp"
+        android:id="@+id/text"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C++"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JAVA"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Python"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JavaScript"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+```
+
+실행결과 다음과 같이 됨을 알 수 있습니다.
+
+![RadioButton](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/RadioButton1.PNG)
