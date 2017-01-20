@@ -336,3 +336,133 @@ RadioButton은 CheckBox와는 다르게 RadioGroup으로 묶어 여러개중에 
 실행결과 다음과 같이 됨을 알 수 있습니다.
 
 ![RadioButton](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/RadioButton1.PNG)
+
+## CheckedTextView
+
+CheckedTextView는 Java 코드에서 setOnClickListener를 이용해 클릭하는 기능을 부여한 뒤에 사용하는 위젯입니다. 
+
+부모컨테이너에 맞춰 깔끔한 디자인이 가능하며, 설정창 등에 사용합니다. andriod:checkMark 속성을 이용하여 체크박스의 모양을 설정할 수 있으며,
+
+보통 "?android:attr/listChoiceIndicatorMultiple" 값을 대입하여 사용합니다.
+
+ToggleButton이나 RadioButton, CheckBox처럼 android:checked를 이용해 초기에 클릭이 되어있는지를 설정할 수 있습니다.
+
+앞의 RadioButton과 CheckBox를 같이 활용한 XML 예시입니다.
+
+```shell
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="kiwoong_ex.widget_test.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="학년"
+        android:textSize="20dp"
+        android:id="@+id/text"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1학년"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2학년"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수강코스"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOEIC"
+            android:layout_weight="1"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPIC"
+            android:layout_weight="1"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEPS"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <CheckedTextView
+        android:text="100%환급반 여부"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkedTextView"
+        android:gravity="center_vertical"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:checked="false" />
+
+</LinearLayout>
+```
+
+실행화면
+
+![CheckedTextView](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/CheckedTextView.PNG)
+
+문제는 실행을 시켜도 CheckedTextView가 클릭이 되질 않습니다! CheckedTextView는 TextView를 상속해서 onClick의 기능이 없어서 그런데요, xml에 onClick을 추가한다고 해서 이 문제가 해결되지는 않습니다.
+
+그럼 어떻게하냐! Java에 가서 setOnClickListener를 이용해 클릭되는 기능을 추가해줘야 합니다.
+
+벌써 한 3번째 하는거니 자세한 설명은 생략하고
+
+```shell
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final CheckedTextView ctv = (CheckedTextView)findViewById(R.id.checkedTextView);
+
+        ctv.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                if(ctv.isChecked())
+                    ctv.setChecked(false);
+                else
+                    ctv.setChecked(true);
+            }
+
+        });
+
+
+    }
+}
+
+```
+
+그럼 이제 얘도 클릭이 됩니다.
+
+![CheckedTextView2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/CheckedTextView2.PNG)
+
