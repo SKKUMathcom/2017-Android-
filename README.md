@@ -36,6 +36,10 @@
   * [ScrollView](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/ScrollView.md)
   
   * [FrameLayout](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/View-Layout/FrameLayout.md)
+  
+## (4) Application
+  
+  * [Activity](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Application_Config/Activity.md)
 
 ## project
 
