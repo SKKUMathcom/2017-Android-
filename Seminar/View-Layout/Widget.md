@@ -466,3 +466,81 @@ public class MainActivity extends AppCompatActivity {
 
 ![CheckedTextView2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/CheckedTextView2.PNG)
 
+## Spinner (Combobox)
+
+C의 UI에서 combobox가 JAVA에서는 Spinner라는 클래스로 정의되어 있는데, Spinner는 여러개의 목록을 한줄에 보여, 클릭하면 펼쳐진 뒤 선택이 가능하게 하는 위젯입니다.
+
+Spinner에 저장될 항목들은 android:entries 라는 속성에 할당됩니다. entries는 xml의 string-array를 인풋으로 받습니다.
+
+음.. 간단한 예시 하나를 만들어봅시다. 먼저 values 에서 array.xml을 새로 생성해줍니다.
+
+![Spinner1](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/spinner1.png)
+
+그리고 아래와 같이 작성해줍니다.
+
+```shell
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="시간">
+        <item>아침(09:00~12:00)</item>
+        <item>점심(14:00~17:00)</item>
+        <item>저녁(18:00~21:00)</item>
+    </string-array>
+</resources>
+```
+
+다른 string-array를 추가하고 싶으면 <resource>와 </resource>사이에 추가하면 됩니다.
+
+이제 activity_main.xml가서 Spinner위젯을 추가하고 entries를 방금 만든 string-array로 해줍니다.
+
+```shell
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:entries="@array/시간"
+        />
+
+```
+
+
+아래와 같이 Spinner가 추가된걸 확인할 수 있습니다!!
+
+![Spinner2](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/spinner2.png)
+
+근데 보이기만 이렇게 보이고 entries 를 뭘 선택하냐를 받아올 수 없으면 안되겠죠?? Java에서 사용자가 어떤 entry를 선택했는지 확인하는 방법을 봅시다.
+
+Button은 setOnclickListener를 필요로 하듯이 Spinner는 setOnItemSelectedListener를 필요로 합니다.
+
+
+```shell
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = spinner.getSelectedItem().toString(); 
+                // Toast.makeText(getApplicationContext(),item+" is clicked",Toast.LENGTH_SHORT).show(); // 이건 그냥 메세지를 띄운것 뿐...
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+    }
+```
+
+setOnClickListener를 설정할 때 처럼 setOnItemSelectedListener 도 overridding으로 재선언해서 기능을 추가하였습니다. 위 방법은 spinner의 item을 클릭하자 마자 특정 기능을 수행하고 싶을 때 사용합니다.
+
+단순히 다른 곳에서 spinner에서 선택된 값을 사용하려면
+
+```shell
+
+Object item = spinner.getSelectedItem()
+
+```
+
+ 으로 값을 사용하면 됩니다.(setOnItemSelectedListener 는 해줘야되요!!)
