@@ -361,4 +361,184 @@ setResult는 resultCode와 intent를 input으로 받아 액티비티가 종료�
 
 intent의 key가 message인 Extra 의 value는 "Activiy가 정상종료되었습니다." 이므로, message라는 이름의 String객체에 "Activity가 정상 종료되었습니다."가 저장되고, Toast message가 보여집니다.
 
- 
+# 부분레이아웃을 이용한 Inflation
+
+끝으로 메인 레이아웃안에 부분 레이아웃을 Inflation시켜, 특정 이벤트로 부분 레이아웃이 활성화 되되록 해보겠습니다.
+
+앞서 코드들은 레이아웃이 아닌 하나의 activity를 inflation 시키는 형식이었습니다. 그래서 activity를 시작시키는 startActivity 함수를 사용했죠.
+
+레이아웃만 Inflation 하기 위해, 안드로이드에서는 LayoutInflater 라는 클래스를 제공합니다. 이 클래스는 시스템 서비스로 제공되므로 
+
+```shell
+getSystemService(Context.LAYOUT_INFLATER_SERVICE)
+```
+
+라는 메소드를 이용해 객체를 참조한 후 사용해야합니다. 그냥 시스템서비스는 객체를 선언한 후 getSystemService로 불러온다고 생각하시면 되요.
+
+우린 Main으로 사용되는 Activity xml파일에 부분 레이아웃 파일인 sublayout.xml 을 LayoutInflater를 통해 객체화하고, 특정 이벤트가 발생하면 getSystemService를 통해 활성화되도록 만들겁니다.
+
+근께 Main으로 사용되는 xml파일과 부분레이아웃으로 사용될 xml파일이 있어야겠죠.
+
+새로 프로젝트를 만들어 다음과 같은 2개의 xml 파일을 만듭시다.(activity_main은 원래 있는거니 안만들어도되요..)
+***
+
+activity_main.xml
+
+```shell
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Push below Button"
+        android:layout_gravity="center_horizontal"/>
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textOff="PUSH"
+        android:textOn="PUSH" />
+    <LinearLayout
+        android:id="@+id/sublayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
+</LinearLayout>
+
+```
+***
+
+sublayout.xml -->꼭 위의 xml에서 지정한 sublayout의 id랑 같을 필요 없습니다!!
+
+```shell
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별"
+        android:textSize="20dp"
+        android:id="@+id/text"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            />
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C++"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JAVA"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Python"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JavaScript"/>
+    </LinearLayout>
+
+</LinearLayout>
+```
+
+이제 자바파일로 갑시다. 이전과는 다르게 저희는 하나의 activity에 다른 sublayout을 inflation 할꺼라 자바파일은 하나만 필요합니다.
+
+MainActivity.java
+
+```shell
+import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+public class MainActivity extends AppCompatActivity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final ToggleButton toggleButton = (ToggleButton)findViewById(R.id.toggleButton); //ToggleButton을 통해 할꺼라서..ㅋㅋㅋ
+        final LinearLayout sublayout = (LinearLayout)findViewById(R.id.sublayout); //먼저 sublayout을 LinearLayout이라는 Viewgroup 클래스의 객체로 만들어줍니다.(참조값은 R.id.sublayout)
+        toggleButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(toggleButton.isChecked())
+                   inflateLayout(sublayout);//클릭이 활성화 될 때 inflateLayout호출
+                //else
+                else
+                    sublayout.removeAllViews(); //활성화 안되면 sublayout의 모든 화면을 다 지움. 빈 레이아웃이 되겠죠?
+            }
+        });
+    }
+    private void inflateLayout(LinearLayout sublayout){
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE); //LayoutInflater로 객체를만든 뒤 getSystemService로 inflater를 활성화.
+        inflater.inflate(R.layout.sublayout,sublayout,true );//R.layout.sublayout에 sublayout이라는 LayoutInflater를 연결함. 
+        //이후 setOnClickListener 등등 layout을 inflation 하고 난 뒤 초기화시키고 싶은 함수들
+        final RadioButton radioButton = (RadioButton)findViewById(R.id.female);
+        radioButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v)
+            {
+                if(radioButton.isChecked())
+                    Toast.makeText(getApplicationContext(),"여성입니까?",Toast.LENGTH_SHORT).show();
+            }
+        });
+        final RadioButton radioButton2 = (RadioButton)findViewById(R.id.male);
+        radioButton2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v)
+            {
+                if(radioButton2.isChecked())
+                    Toast.makeText(getApplicationContext(),"남성입니까?",Toast.LENGTH_SHORT).show();
+            }
+        });
+        //여기까지 초기화 하면됩니다^^
+    }
+}
+```
+각 줄별 설명은 주석을 참조하시면 되겠습니다 ㅎㅎ
