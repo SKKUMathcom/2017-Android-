@@ -2,7 +2,7 @@
 
 # Seminar
 
-## (1) introduce
+## (1) introduction (edited by w.-j. lee)
   * [Android Studio 설치](https://github.com/SKKUMathcom/2017Seminar/blob/master/Seminar/Introduce/Android_AndroidStudio.md)
 
   * [생성부터 실행까지](https://github.com/SKKUMathcom/2017Seminar/blob/master/Seminar/Introduce/FromCreatet_ToRun.md)
