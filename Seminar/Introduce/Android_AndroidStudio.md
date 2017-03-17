@@ -92,7 +92,12 @@ Android Studio 에서 설치하는건 크게 2가지 입니다.
 
 거기서 launch standalone SDK를 누르면 Android SDK Manager가 팝업됩니다. 여기서는 현재 설치된 플랫폼, 설치가 되지 않은 플랫폼에서 사용되는 tool을 확인, 수정할 수 있습니다.
 Packages 목록중에 최신 안드로이드 API와 맨 아래 있는 Extras를 체크한 후 install 해줍시다.
+
+
+** 이번에 안드로이드 버전업이 되면서 sdk manager에서 package 설치하는게 없어졌더라구요!! 아래 부분은 안해도 됩니다!!
+
 ![SDKManager](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/launch%20standalone.PNG)
 
 install시 라이센스가 다 accept 되도록 설치해주는것에 주의!!
 ![install](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Figure/sdk2.PNG)
+
