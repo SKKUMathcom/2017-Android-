@@ -41,7 +41,7 @@
   
   * [Activity](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Application_Config/Activity.md)
 
-  * [Intent](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Application_Config/Intent.md)
+  * [Intent](https://github.com/SKKUMathcom/2017-Android-/blob/master/Seminar/Application_Config/intent.md)
 
 ## project
 
